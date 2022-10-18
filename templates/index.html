@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  {% load pwa %}
+  {% progressive_web_app_meta %}
+
+  <head>
+
+    <!-- 웹 앱 매니페스트를 읽어 들이기 -->
+    <link rel="manifest" href="manifest.json">
+    <!-- 서비스 워커를 등록 -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator
+          .serviceWorker
+          .register('sw.js')
+          .then((reg) => {
+            console.log('서비스 워커가 등록됨.', reg);
+          });
+      }
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django PWA</title>
+  </head>
+
+  <body>
+    <h1>Django PWA</h1>
+    <p>레전드</p>
+  </body>
+
+</html>
