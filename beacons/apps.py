@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class LocationInformationConfig(AppConfig):
+class BeaconsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'location_information'
+    name = 'beacons'
