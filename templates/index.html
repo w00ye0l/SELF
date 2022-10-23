@@ -3,6 +3,9 @@
 {% block content %}
   <h1>index</h1>
   {% for book in books %}
-    <p>{{ book.title }}</p>
+    <a href="{% url 'books:detail' book.pk %}">
+      <p>{{ book.title }}</p>
+    </a>
   {% endfor %}
+  <a href="{% url 'books:create' %}">책 정보 추가</a>
 {% endblock content %}
