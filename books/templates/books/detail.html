@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-5 d-flex flex-column justify-content-center align-items-center text-center">
+    <h1 class="my-2" style="font-size:10vw;">책 제목</h1>
+    <p class="my-2" style="font-size:5vw;">{{ book.title }}</p>
+    <h1 class="my-2" style="font-size:10vw;">책 이미지</h1>
+    <div class="bg-light border border-3 border-black" style="background-image:url({{ book.image.url }}); background-repeat:no-repeat; background-position:center; background-size:contain;); width:40vw; height:60vw;"></div>
+    <h1 class="my-2" style="font-size:10vw;">위치</h1>
+    <p class="my-2" style="font-size:5vw;">{{ book.x }}
+      |
+      {{ book.y }}</p>
+    <button class="btn btn-danger" style="font-size:8vw;">안내 시작</button>
+  </div>
+{% endblock content %}
