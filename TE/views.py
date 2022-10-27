@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from PIL import Image
 import pytesseract
-from .forms import reqData
+from .forms import reqData, AudioForm
+import speech_recognition as sr
 
 
 def index(request):
@@ -40,3 +41,20 @@ def get_text(request):
         except:
             return render(request, "TE/WinText.html")
     return render(request, "TE/WinText.html", context)
+
+def bookfind(request):
+    return render(request, 'TE/bookfind.html')
+
+def voice(request):
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        audio = r.listen(source)
+        success = True
+        try:
+            text = r.recognize_google(audio, language="ko-KR")
+            answer = '{}'.format(text)
+        except:
+            success = False
+            answer = '죄송합니다. 정확히 인식하지 못했습니다.'
+
+    return render(request, 'TE/voice.html', {'answer':answer, 'success':success})

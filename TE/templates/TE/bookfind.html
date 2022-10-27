@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+
+{% comment %} <div class='d-flex'>
+  <div class="spinner-grow text-dark align-center" role="status">
+  </div>
+  <form action='{% url 'TE:voice' %}'>
+    <button type=submit class="btn btn-secondary">음성 인식 시작</button>
+  </form> {% endcomment %}
+<div class='d-flex flex-row justify-content-center'>
+  <div class="d-flex card text-center" style='width:80vw; height:80vh;'>
+    <div class="card-body">
+      <h2 class="card-title">도서 음성 검색</h2>
+      <p class="card-text">도서 검색을 위해 아래 버튼을 누르고 도서 명을 말해주세요.</p>
+      <div class="spinner-grow text-dark mb-4" role="status">
+      </div>
+      <form action='{% url 'TE:voice' %}'>
+        <button type=submit class="btn btn-primary">음성 인식 시작</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}

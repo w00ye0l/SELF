@@ -1,4 +1,5 @@
 from django import forms
+from .models import *
 
 LANG_CHOICES = (
     ("eng", "English"),
@@ -11,3 +12,10 @@ LANG_CHOICES = (
 class reqData(forms.Form):
     image = forms.ImageField()
     lang = forms.ChoiceField(choices=LANG_CHOICES)
+
+
+
+class AudioForm(forms.ModelForm):
+    class Meta:
+        model=Audio_store
+        fields=['record']
