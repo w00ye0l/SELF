@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+
+<div class='d-flex flex-row justify-content-center'>
+  <div class="d-flex card text-center" style='width:80vw; height:80vh;'>
+    <div class="card-body">
+      <h2 class="card-title">도서 제목</h2>
+      <p class="card-text">{{answer}}</p>
+      <div class="spinner-grow text-dark mb-4" role="status">
+      </div>
+      {% if success %}
+      <form action='{% url 'TE:voice' %}'>
+        <button type=submit class="btn btn-primary">길안내 시작</button>
+      </form>
+      {% else %}
+      <form action='{% url 'TE:voice' %}'>
+        <button type=submit class="btn btn-primary">다시 검색</button>
+      </form>
+      {% endif %}
+      
+    </div>
+  </div>
+</div>
+{% endblock content %}
