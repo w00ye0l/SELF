@@ -23,3 +23,11 @@ def detail(request, pk):
         "book": book,
     }
     return render(request, "books/detail.html", context)
+
+
+def correct(request):
+    return render(request, "books/book_correct.html")
+
+
+def incorrect(request):
+    return render(request, "books/book_incorrect.html")
