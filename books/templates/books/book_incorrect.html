@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="container mt-5 d-flex flex-column justify-content-between align-items-center text-center" style="height:60vh;">
+    <div class="mb-5" style="margin-top:20vw;">
+      <img src="{% static 'images/x.png' %}" alt="" style="width:70vw;">
+    </div>
+    <button class="btn p-4 btn-warning" style="font-size:10vw;">"도서 불일치"</button>
+  </div>
+{% endblock content %}
